@@ -3,12 +3,13 @@ import xlrd
 import xlwt
 
 
-import json
-from urllib.request import urlopen
-url = "https://gdata.youtube.com/feeds/api.standardfeeds/top_rated?alt=json"
-response = urlopen(url)
-contents = response.read()
-text = contents.decode('utf8')
-data = json.load(text)
-for video in data['feed']['entry'][0:6]:
-    print(video['title']['$t'])
+numbers = [1,4,5]
+position = 0
+while position < len(numbers):
+    number=numbers[position]
+    if number%2 == 0:
+        print('found even number',number)
+        break
+    position += 1
+else:
+    print('no even number found')
