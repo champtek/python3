@@ -30,7 +30,7 @@ for sheet_name in sheet_name:
         print(col0)
 #find 1.0
         for i in range(0,len(col0)):
-            if 1==col0[i]:
+            if 1==col0[i]:# -*- coding: utf-8 -*-
                 num = i
 #find ''
         for i in range(0,len(col0)):
