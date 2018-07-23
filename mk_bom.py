@@ -17,6 +17,7 @@ j=0
 k=0
 top_list=[]
 bottom_list=[]
+'''分开top和bottom的元件'''
 for i in range(0,len(sheet0_list)):
     if 'Top'==sheet0_list[i][2]:
 
