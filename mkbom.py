@@ -98,5 +98,9 @@ def compare_bom(target_bom,all_bom):
     for i in range(len(sheet0_list)):
         print(sheet0_list[i])
 
+def main():
+    compare_bom(target,allbom)
+    print('ok!')
 
-compare_bom(target,allbom)
+if __name__ == '__main__':
+    main()
