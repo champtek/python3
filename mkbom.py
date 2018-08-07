@@ -95,12 +95,21 @@ def compare_bom(target_bom,all_bom):
     while target_tail > 0:
         sheet0_list.pop()
         target_tail-=1
-    for i in range(len(sheet0_list)):
+    for i in range(0,len(sheet0_list)):
         print(sheet0_list[i])
 
+    for i in range(0,len(sheet0_list)):
+        sheet0_list[i][2]=sheet0_list[i][2].split('_')
+        #print(sheet0_list[i][2])
+        for j in range(0,len(target_list)):
+            if target_list[j][-2][0] in sheet0_list[i][2] and target_list[j][-2][1] in sheet0_list[i][2] and target_list[j][-2][2] in sheet0_list[i][2]:
+                print(target_list[j])
+                print(sheet0_list[i])
+            else:
+                print(target_list[j])
 def main():
     compare_bom(target,allbom)
-    print('ok!')
+    print('run end!')
 
 if __name__ == '__main__':
     main()
