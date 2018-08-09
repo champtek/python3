@@ -96,19 +96,47 @@ def compare_bom(target_bom,all_bom):
         sheet0_list.pop()
         target_tail-=1
     for i in range(0,len(sheet0_list)):
-        print(sheet0_list[i])
+        #print(sheet0_list[i])
+        pass
+    # 合并位号进一个list
+    for i in range(0,len(sheet0_list)):
+        list(sheet0_list[i][0])
+        print(sheet0_list[i][-1])
+        int(sheet0_list[i][-1])
+        j = 1
+        if(i<sheet0_list[i][-1]):
+            sheet0_list[i][0].append(sheet0_list[i][j])
+            del sheet0_list[i][j]
+            j+=1
 
+        pass
     for i in range(0,len(sheet0_list)):
         sheet0_list[i][2]=sheet0_list[i][2].split('_')
         #print(sheet0_list[i][2])
         for j in range(0,len(target_list)):
             if target_list[j][-2][0] in sheet0_list[i][2] and target_list[j][-2][1] in sheet0_list[i][2] and target_list[j][-2][2] in sheet0_list[i][2]:
+                print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
                 print(target_list[j])
                 print(sheet0_list[i])
-            else:
+                target_list[j][-2]=sheet0_list[i][2]
+                target_list[j][-2]='_'.join(target_list[j][-2])
                 print(target_list[j])
+                # print(type(target_list[j][-2]))
+            #else:
+                #print('######################################')
+                #print(target_list[j])
+            #pass
+    return target_list
+# def save_list(list):
+#     wk = xlwt.Workbook()
+#     wsh = wk.add_sheet('bom_test')
+#     for i in range(0,len(list)):
+#         for j in range(0,len(list[0])):
+#             wsh.write(i,j,list[i][j])
+#     wk.save('bom_list_new.xls')
 def main():
-    compare_bom(target,allbom)
+    target_list=compare_bom(target,allbom)
+    # save_list(target_list)
     print('run end!')
 
 if __name__ == '__main__':
